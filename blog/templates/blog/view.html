@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
+</head>
+<body>
+<h1 style="text-align: center">{{ posts.title }}</h1>
+<p>{{ posts.content }}</p>
+<img height="300px" src="/media/{{posts.img}}"/>
+<h3>Comments</h3>
+{% for comment in comments %}
+<ul>
+    <li>{{ comment.comment_text}}</li>
+</ul>
+{% endfor %}
+
+</body>
+</html></html>
