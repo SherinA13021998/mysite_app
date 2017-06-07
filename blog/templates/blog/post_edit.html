@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Post</title>
+</head>
+<body>
+<h1>Edit Post</h1>
+   <p>{{ request.user.username }}</p>
+   <form method="POST" action="" enctype="multipart/form-data">
+       {% csrf_token %}
+       <p>Title</p>
+       <textarea rows="3" cols="150" name="title">{{ post.title }}</textarea>
+       <p>Content</p>
+       <textarea rows="20" cols="150" name="content">{{ post.content }}</textarea>
+       {% if post.img %}
+       <p>Image:{{ post.img }}</p>
+       {% endif %}
+       <input name="img" type="file" value="{{ post.img }}">
+       <p>is published</p>
+       <input name="is_published" type="checkbox" value=True>
+       <input type="submit">
+   </form>
+
+</body>
+</html>

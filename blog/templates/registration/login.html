@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+
+{% if form.errors %}
+<p>Username or password is wrong</p>
+{% endif %}
+
+<center>
+<form method="POST" action="{% url 'login' %}">
+    {% csrf_token %}
+    {{ form.username.label_tag}}
+    <input type="text" name="username">
+    <br>
+    <br>
+    {{ form.password.label_tag}}
+    <input type="password" name="password">
+    <br>
+    <br>
+    <input type="submit">
+
+</form>
+</center>
+</body>
+</html>

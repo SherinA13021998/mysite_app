@@ -18,6 +18,7 @@ from django.conf.urls import url, include
 from django.conf.urls.static import static
 from django.contrib import admin
 
+from blog.views import signup
 from mysite import settings
 
 
@@ -25,5 +26,8 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^blog/', include("blog.urls")),
     url(r'^polls/', include("polls.urls")),
+    url(r'^accounts/', include('django.contrib.auth.urls')),
+    url(r'^accounts/signup/$', signup, name="signup"),
+
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
